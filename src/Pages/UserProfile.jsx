@@ -34,7 +34,8 @@ const UserProfile = () => {
   useEffect(() =>{
     const fetchUser = async()=>{
       try {
-        const response = await axios.get(`http://localhost:5000/api/users/${id}` );
+        // const response = await axios.get(`http://localhost:5000/api/users/${id}` );
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${id}` );
         const {name , email , avatar} = response.data;
         setName(name)
         setEmail(email)

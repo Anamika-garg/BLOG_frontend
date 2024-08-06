@@ -16,7 +16,8 @@ const AuthorsPosts = () => {
             setIsLoading(true);
 
             try {
-                const response = await axios.get(`http://localhost:5000/api/posts/users/${id}`);
+                // const response = await axios.get(`http://localhost:5000/api/posts/users/${id}`);
+                const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}`);
                 setPosts(await response.data);
 
             } catch (error) {

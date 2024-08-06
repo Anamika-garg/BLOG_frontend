@@ -15,7 +15,8 @@ const Posts = () => {
             setIsLoading(true);
 
             try {
-                const response = await axios.get(`http://localhost:5000/api/posts`);
+                // const response = await axios.get(`http://localhost:5000/api/posts`);
+                const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts`);
                 setPosts(await response.data);
 
             } catch (error) {

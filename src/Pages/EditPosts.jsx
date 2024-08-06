@@ -50,7 +50,8 @@ const EditPosts = () => {
   useEffect(()=>{
     const getPost = async()=>{
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        // const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
         setTitle(response.data.title)
         setDescription(response.data.description)
         setCatgeory(response.data.category)

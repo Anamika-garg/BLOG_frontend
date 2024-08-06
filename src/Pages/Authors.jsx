@@ -11,7 +11,8 @@ const Authors = () => {
     const getAuthors = async()=>{
 
       try{
-        const response = await axios.get(`http://localhost:5000/api/users`)
+        // const response = await axios.get(`http://localhost:5000/api/users`)
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users`)
         setAuthors(response.data);
       }
       catch(err){

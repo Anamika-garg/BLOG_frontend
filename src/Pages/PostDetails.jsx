@@ -19,7 +19,8 @@ const PostDetails = () => {
       setIsLoading(true);
 
       try {
-        const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        // const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
         setPost(await response.data)
         // console.log(response.data)
       } catch (error) {
