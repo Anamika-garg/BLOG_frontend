@@ -4,9 +4,6 @@ import pic from '../../public/1.jpg'
 import axios from 'axios';
 import ReactTimeAgo from 'react-time-ago';
 import TimeAgo from 'javascript-time-ago';
-
-
-
 import en from 'javascript-time-ago/locale/en.json';
 import ru from 'javascript-time-ago/locale/ru.json';
 
@@ -32,7 +29,7 @@ const PostAuthor = ({ authorID, createdAt }) => {
       }
 
       getAuthor();
-    }, [])
+    }, []); 
 
 
   return (
