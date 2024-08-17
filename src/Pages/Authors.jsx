@@ -11,7 +11,7 @@ const Authors = () => {
     const getAuthors = async()=>{
 
       try{
-        // const response = await axios.get(`http://localhost:5000/api/users`)
+        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users`)
         const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users`)
         setAuthors(response.data);
       }
@@ -34,7 +34,7 @@ const Authors = () => {
           authors.map(({_id : id , avatar , name , posts})=>{
             return <Link key={id} className='author' to={`/posts/users/${id}`}>
               <div className="author_avatar">
-                <img src = {`http://localhost:5000/uploads/${avatar}`} alt={`Image of ${name}`} />
+                <img src = {`https://anamika-blog-backend.vercel.app/uploads/${avatar}`} alt={`Image of ${name}`} />
               </div>
               <div className="author_info">
                 <h4>{name}</h4>

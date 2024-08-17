@@ -26,8 +26,8 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      // const response = await axios.post(`http://localhost:5000/api/users/register` , userData);
-      const response = await axios.post(`https://anamika-blog-backend.vercel.app/api/users/register` , userData);
+      // const response = await axios.post(`https://anamika-blog-backend.vercel.app/api/users/register` , userData);
+      const response = await axios.post(`https://anamika-blog-backend.vercel.app/` , userData);
 
       const newUser = await response.data;
       console.log(newUser);

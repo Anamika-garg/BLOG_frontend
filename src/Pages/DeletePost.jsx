@@ -26,7 +26,7 @@ const DeletePost = ({postId : id}) => {
       const response = await axios.delete(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , {withCredentials : true , headers : {
         Authorization : `Bearer ${token}`
       }})
-      // const response = await axios.delete(`http://localhost:5000/api/posts/${id}` , {withCredentials : true , headers : {
+      // const response = await axios.delete(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , {withCredentials : true , headers : {
       //   Authorization : `Bearer ${token}`
       // }})
 

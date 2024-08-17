@@ -16,7 +16,7 @@ const CategoryPost = () => {
             setIsLoading(true);
 
             try {
-                // const response = await axios.get(`http://localhost:5000/api/posts/categories/${category}`);
+                // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/categories/${category}`);
                 const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/categories/${category}`);
                 setPosts(await response.data);
 

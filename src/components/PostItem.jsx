@@ -9,7 +9,7 @@ const PostItem = ({title , createdAt , description , authorID , category , thumb
     <article className="post" key={postID}>
       <div className="post_thumbnail">
         <img height={280} width={330} src={`https://anamika-blog-backend.vercel.app/uploads/${thumbnail}`} alt={title}/>
-        {/* <img height={280} width={330} src={`http://localhost:5000/uploads/${thumbnail}`} alt={title}/> */}
+        {/* <img height={280} width={330} src={`https://anamika-blog-backend.vercel.app/uploads/${thumbnail}`} alt={title}/> */}
       </div>
       <div className="post_content">
         <Link to={`/posts/${postID}`}>

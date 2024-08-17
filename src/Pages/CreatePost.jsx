@@ -50,10 +50,10 @@ const CreatePost = () => {
     postData.set('thumbnail' , thumbnail);
 
     try {
-      const response = await axios.post(`https://anamika-blog-backend.vercel.app/api/posts/create` , postData , {withCredentials : true , headers : {
+      const response = await axios.post(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/create` , postData ,  {headers : {
         Authorization : `Bearer ${token}`
       }})
-      // const response = await axios.post(`http://localhost:5000/api/posts/create` , postData , {withCredentials : true , headers : {
+      // const response = await axios.post(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/create` , postData , { headers : {
       //   Authorization : `Bearer ${token}`
       // }})
 
@@ -67,7 +67,8 @@ const CreatePost = () => {
         setError(response.data.error)
       }
     } catch (err) {
-      setError(err.response.data.message)
+      // setError(err.response.data.message)
+      setError(err.response)
     }
   }
 

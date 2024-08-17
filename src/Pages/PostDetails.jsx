@@ -19,8 +19,8 @@ const PostDetails = () => {
       setIsLoading(true);
 
       try {
-        // const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
+        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/`)
         setPost(await response.data)
         // console.log(response.data)
       } catch (error) {
@@ -55,7 +55,7 @@ const PostDetails = () => {
        {post ? 
        <> <h1>{post.title}</h1> 
           <div className="post-detail_thumbnail">
-          <img src={`http://localhost:5000/uploads/${post.thumbnail}`} alt="" />
+          <img src={`https://anamika-blog-backend.vercel.app/uploads/${post.thumbnail}`} alt="" />
         </div> 
         <p dangerouslySetInnerHTML={{__html : post.description}}></p>
         </>: <></>

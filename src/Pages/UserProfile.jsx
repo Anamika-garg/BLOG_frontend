@@ -34,7 +34,7 @@ const UserProfile = () => {
   useEffect(() =>{
     const fetchUser = async()=>{
       try {
-        // const response = await axios.get(`http://localhost:5000/api/users/${id}` );
+        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${id}` );
         const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${id}` );
         const {name , email , avatar} = response.data;
         setName(name)
@@ -53,7 +53,7 @@ const UserProfile = () => {
     try {
       const postData = new FormData();
       postData.set('avatar' , avatar);
-      const response = await axios.post('http://localhost:5000/api/users/change-avatar' , postData , {withCredentials : true , headers : {
+      const response = await axios.post('https://anamika-blog-backend.vercel.app/api/users/change-avatar' , postData , { headers : {
         Authorization : `Bearer ${token}`
       }})
 
@@ -77,8 +77,8 @@ const UserProfile = () => {
       userData.set('newPassword' , newPswd)
       userData.set('confirmNewPassword' , confirmNewPswd)
 
-      const response = await axios.patch(`http://localhost:5000/api/users/edit-user` , userData , {
-        withCredentials : true,
+      const response = await axios.patch(`https://anamika-blog-backend.vercel.app/api/users/edit-user` , userData , {
+        
         headers : {
           Authorization : `Bearer ${token}`
         }
@@ -106,7 +106,7 @@ const UserProfile = () => {
         <div className="profile_detail">
           <div className="avatar_wrapper">
             <div className="profile_avatar">
-              <img src={`http://localhost:5000/uploads/${avatar}`} alt="" />
+              <img src={`https://anamika-blog-backend.vercel.app/uploads/${avatar}`} alt="" />
             </div>
 
             <form action="" className="avatar_form">

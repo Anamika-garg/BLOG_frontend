@@ -50,8 +50,8 @@ const EditPosts = () => {
   useEffect(()=>{
     const getPost = async()=>{
       try {
-        // const response = await axios.get(`http://localhost:5000/api/posts/${id}`);
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
+        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
+        const response = await axios.get(`https://anamika-blog-backend.vercel.app/`)
         setTitle(response.data.title)
         setDescription(response.data.description)
         setCatgeory(response.data.category)
@@ -78,10 +78,13 @@ const EditPosts = () => {
     postData.set('thumbnail' , thumbnail);
 
     try {
-      const response = await axios.patch(`http://localhost:5000/api/posts/${id}` , postData , {withCredentials : true , headers : {
-        Authorization : `Bearer ${token}`
-      }})
-
+     
+      const response = await axios.patch(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , postData , {
+        
+        headers : {
+          Authorization : `Bearer ${token}`
+        }
+      })
       console.log(await response.data)
       console.log(response.status)
       if(await response.data.error){

@@ -19,8 +19,8 @@ const PostAuthor = ({ authorID, createdAt }) => {
 
       const getAuthor = async () => {
         try {
-          // const response = await axios.get(`http://localhost:5000/api/users/${authorID}`);
-          const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${authorID}`);
+          // const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/users/${authorID}`);
+          const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/users/${authorID}`);
           setAuthor(await response?.data)
 
 
@@ -36,7 +36,7 @@ const PostAuthor = ({ authorID, createdAt }) => {
   return (
     <Link to={`/posts/users/${authorID}`} className='post_author'>
       <div className="post_author-avatar">
-        <img src={`http://localhost:5000/uploads/${author?.avatar}`} alt="" />
+        <img src={`https://anamika-blog-backend.vercel.app/ackend.vercel.app/uploads/${author?.avatar}`} alt="" />
       </div>
       <div className="post_author-details">
        { author ?  <h5>By : {author.name} </h5> : <h5>By : Anamika Garg</h5>}

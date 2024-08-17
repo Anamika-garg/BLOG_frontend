@@ -27,13 +27,13 @@ const Dashboard = () => {
       setIsLoading(true);
       try {
         const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}` , {
-          withCredentials : true,
+          
           headers : {
             Authorization : `Bearer ${token}`
           }
         });
-        // const response = await axios.get(`http://localhost:5000/api/posts/users/${id}` , {
-        //   withCredentials : true,
+        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}` , {
+        //   
         //   headers : {
         //     Authorization : `Bearer ${token}`
         //   }
@@ -67,7 +67,7 @@ const Dashboard = () => {
             posts.map(post => {
               return <article key={post._id} className='dashboard_post'>
                 <div className="dashboard_post-info">
-                  <img className='dashboard_post-thumbnail' src={`http://localhost:5000/uploads/${post.thumbnail}`} alt="" />
+                  <img className='dashboard_post-thumbnail' src={`https://anamika-blog-backend.vercel.app/uploads/${post.thumbnail}`} alt="" />
                 <h5>{post.title}</h5>
                 </div>
                 
