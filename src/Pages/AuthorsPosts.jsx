@@ -17,7 +17,7 @@ const AuthorsPosts = () => {
 
             try {
                 // const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/users/${id}`);
-                const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/users/${id}`);
+                const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}`);
                 setPosts(await response.data);
 
             } catch (error) {
