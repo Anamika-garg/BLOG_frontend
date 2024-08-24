@@ -8,8 +8,8 @@ const Authors = () => {
   const [isLoading , setIsLoading] = useState(false);
 
   useEffect(()=>{
-    setIsLoading(true);
     const getAuthors = async()=>{
+      setIsLoading(true);
 
       try{
         
