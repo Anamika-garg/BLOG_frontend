@@ -1,6 +1,7 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
 import PostAuthor from './PostAuthor'
+import { myUrl } from '../urls';
 const PostItem = ({title , createdAt , description , authorID , category , thumbnail , postID}) => {
 
   const shortDesc = description.length > 145 ? description.substr(0 , 99) + '...': description ;
@@ -8,8 +9,8 @@ const PostItem = ({title , createdAt , description , authorID , category , thumb
   return (
     <article className="post" key={postID}>
       <div className="post_thumbnail">
-        <img height={280} width={330} src={`https://anamika-blog-backend.vercel.app/uploads/${thumbnail}`} alt={title}/>
-        {/* <img height={280} width={330} src={`https://anamika-blog-backend.vercel.app/uploads/${thumbnail}`} alt={title}/> */}
+        <img height={280} width={330} src={`${myUrl}/uploads/${thumbnail}`} alt={title}/>
+        
       </div>
       <div className="post_content">
         <Link to={`/posts/${postID}`}>

@@ -1,6 +1,7 @@
 import React, { useState , useContext} from 'react'
 import {Link , useNavigate}  from 'react-router-dom';
 import axios from 'axios';
+import { myUrl } from '../urls';
 
 import {UserContext} from '../Context/userContext'
 
@@ -28,8 +29,8 @@ const Login = () => {
 
     setError('');
     try{
-      // const response = await axios.post("https://anamika-blog-backend.vercel.app/api/users/login" , userData);
-      const response = await axios.post("https://anamika-blog-backend.vercel.app/api/users/login" , userData);
+      
+      const response = await axios.post(`${myUrl}/api/users/login` , userData);
 
       const user = await response.data;
       setCurrentUser(user)

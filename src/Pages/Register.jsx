@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import {Link , useNavigate}  from 'react-router-dom';
 import axios from 'axios';
+import { myUrl } from '../urls';
 
 const Register = () => {
   const [userData , setUserData] = useState({
@@ -26,8 +27,8 @@ const Register = () => {
     e.preventDefault();
 
     try {
-      // const response = await axios.post(`https://anamika-blog-backend.vercel.app/api/users/register` , userData);
-      const response = await axios.post(`https://anamika-blog-backend.vercel.app/` , userData);
+      
+      const response = await axios.post(`${myUrl}/api/users/register` , userData);
 
       const newUser = await response.data;
       console.log(newUser);

@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import { useNavigate ,useParams } from 'react-router-dom';
 import { UserContext } from '../Context/userContext';
 import axios from 'axios';
+import { myUrl } from '../urls';
 
 
 const EditPosts = () => {
@@ -50,8 +51,8 @@ const EditPosts = () => {
   useEffect(()=>{
     const getPost = async()=>{
       try {
-        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/`)
+        
+        const response = await axios.get(`${myUrl}/api/posts/${id}`)
         setTitle(response.data.title)
         setDescription(response.data.description)
         setCatgeory(response.data.category)
@@ -79,7 +80,7 @@ const EditPosts = () => {
 
     try {
      
-      const response = await axios.patch(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , postData , {
+      const response = await axios.patch(`${myUrl}/api/posts/${id}` , postData , {
         
         headers : {
           Authorization : `Bearer ${token}`

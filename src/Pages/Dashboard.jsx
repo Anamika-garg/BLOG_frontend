@@ -6,6 +6,7 @@ import { UserContext } from '../Context/userContext';
 import axios from 'axios';
 import Loader from '../components/Loader';
 import DeletePost from './DeletePost';
+import { myUrl } from '../urls';
 
 const Dashboard = () => {
   const navigate = useNavigate(); 
@@ -26,18 +27,13 @@ const Dashboard = () => {
     const fetchPost = async()=>{
       setIsLoading(true);
       try {
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}` , {
+        const response = await axios.get(`${myUrl}/api/posts/users/${id}` , {
           
           headers : {
             Authorization : `Bearer ${token}`
           }
         });
-        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}` , {
-        //   
-        //   headers : {
-        //     Authorization : `Bearer ${token}`
-        //   }
-        // });
+        
 
         setPosts(response.data)
 
@@ -54,9 +50,9 @@ const Dashboard = () => {
     fetchPost();
   },[id])
 
-  if(isLoading){
-    return <Loader/>
-  }
+  // if(isLoading){
+  //   return <Loader/>
+  // }
 
 
   return (
@@ -67,7 +63,7 @@ const Dashboard = () => {
             posts.map(post => {
               return <article key={post._id} className='dashboard_post'>
                 <div className="dashboard_post-info">
-                  <img className='dashboard_post-thumbnail' src={`https://anamika-blog-backend.vercel.app/uploads/${post.thumbnail}`} alt="" />
+                  <img className='dashboard_post-thumbnail' src={`${myUrl}/uploads/${post.thumbnail}`} alt="" />
                 <h5>{post.title}</h5>
                 </div>
                 

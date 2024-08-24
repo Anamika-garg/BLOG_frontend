@@ -3,7 +3,8 @@ import PostItem from './PostItem'
 import { DUMMY_POSTS } from '../../data'
 import Loader from './Loader'
 import axios from 'axios'
-import { configDotenv } from 'dotenv'
+import { configDotenv } from 'dotenv';
+import { myUrl } from '../urls'
 
 const Posts = () => {
     const [posts , setPosts] = useState([]);
@@ -15,8 +16,8 @@ const Posts = () => {
             setIsLoading(true);
 
             try {
-                // const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts`);
-                const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts`);
+                
+                const response = await axios.get(`${myUrl}/api/posts`);
                 setPosts(await response.data);
 
             } catch (error) {

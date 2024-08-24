@@ -4,6 +4,7 @@ import { DUMMY_POSTS } from '../../data'
 import Loader from '../components/Loader';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import { myUrl } from '../urls';
 const AuthorsPosts = () => {
 
     const [posts , setPosts] = useState([]);
@@ -16,8 +17,8 @@ const AuthorsPosts = () => {
             setIsLoading(true);
 
             try {
-                // const response = await axios.get(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/users/${id}`);
-                const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/users/${id}`);
+                
+                const response = await axios.get(`${myUrl}/api/posts/users/${id}`);
                 setPosts(await response.data);
 
             } catch (error) {

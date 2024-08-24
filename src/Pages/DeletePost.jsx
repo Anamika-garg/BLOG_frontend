@@ -3,6 +3,7 @@ import { Link, useNavigate , useLocation} from 'react-router-dom';
 import { UserContext } from '../Context/userContext';
 import axios from 'axios';
 import Loader from '../components/Loader';
+import { myUrl } from '../urls';
 
 const DeletePost = ({postId : id}) => {
 
@@ -23,12 +24,10 @@ const DeletePost = ({postId : id}) => {
   const removePost = async()=>{
     setIsLoading(true)
     try {
-      const response = await axios.delete(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , {withCredentials : true , headers : {
+      const response = await axios.delete(`${myUrl}/api/posts/${id}` , {headers : {
         Authorization : `Bearer ${token}`
       }})
-      // const response = await axios.delete(`https://anamika-blog-backend.vercel.app/api/posts/${id}` , {withCredentials : true , headers : {
-      //   Authorization : `Bearer ${token}`
-      // }})
+      
 
       console.log(await response.data)
       if(!response.data.error){

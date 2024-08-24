@@ -7,6 +7,7 @@ import loader from '../components/Loader';
 import DeletePost from './DeletePost'
 import { UserContext } from '../Context/userContext';
 import axios from 'axios';
+import { myUrl } from '../urls';
 const PostDetails = () => {
   const {id} = useParams();
   const [post , setPost] = useState(null)
@@ -20,7 +21,7 @@ const PostDetails = () => {
 
       try {
         // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/posts/${id}`);
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/`)
+        const response = await axios.get(`${myUrl}/api/posts/${id}`)
         setPost(await response.data)
         // console.log(response.data)
       } catch (error) {
@@ -55,7 +56,7 @@ const PostDetails = () => {
        {post ? 
        <> <h1>{post.title}</h1> 
           <div className="post-detail_thumbnail">
-          <img src={`https://anamika-blog-backend.vercel.app/uploads/${post.thumbnail}`} alt="" />
+          <img src={`${myUrl}/uploads/${post.thumbnail}`} alt="" />
         </div> 
         <p dangerouslySetInnerHTML={{__html : post.description}}></p>
         </>: <></>

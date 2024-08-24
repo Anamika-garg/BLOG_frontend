@@ -4,6 +4,7 @@ import { FaEdit } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa";
 import { UserContext } from '../Context/userContext';
 import axios from 'axios';
+import { myUrl } from '../urls';
 
 
 const UserProfile = () => {
@@ -34,8 +35,8 @@ const UserProfile = () => {
   useEffect(() =>{
     const fetchUser = async()=>{
       try {
-        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${id}` );
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users/${id}` );
+        
+        const response = await axios.get(`${myUrl}/api/users/${id}` );
         const {name , email , avatar} = response.data;
         setName(name)
         setEmail(email)
@@ -53,7 +54,7 @@ const UserProfile = () => {
     try {
       const postData = new FormData();
       postData.set('avatar' , avatar);
-      const response = await axios.post('https://anamika-blog-backend.vercel.app/api/users/change-avatar' , postData , { headers : {
+      const response = await axios.post(`${myUrl}/api/users/change-avatar` , postData , { headers : {
         Authorization : `Bearer ${token}`
       }})
 
@@ -63,7 +64,7 @@ const UserProfile = () => {
         setError(response.data.error)
       }
     } catch (err) {
-      console.log(err)
+      console.log(err);
     }
   }
 
@@ -77,7 +78,7 @@ const UserProfile = () => {
       userData.set('newPassword' , newPswd)
       userData.set('confirmNewPassword' , confirmNewPswd)
 
-      const response = await axios.patch(`https://anamika-blog-backend.vercel.app/api/users/edit-user` , userData , {
+      const response = await axios.patch(`${myUrl}/api/users/edit-user` , userData , {
         
         headers : {
           Authorization : `Bearer ${token}`
@@ -106,7 +107,7 @@ const UserProfile = () => {
         <div className="profile_detail">
           <div className="avatar_wrapper">
             <div className="profile_avatar">
-              <img src={`https://anamika-blog-backend.vercel.app/uploads/${avatar}`} alt="" />
+              <img src={`${myUrl}/uploads/${avatar}`} alt="" />
             </div>
 
             <form action="" className="avatar_form">

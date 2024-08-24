@@ -4,6 +4,7 @@ import 'react-quill/dist/quill.snow.css';
 import { UserContext } from '../Context/userContext';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios'
+import { myUrl } from '../urls';
 
 const CreatePost = () => {
   const [title , setTitle] = useState('');
@@ -50,12 +51,11 @@ const CreatePost = () => {
     postData.set('thumbnail' , thumbnail);
 
     try {
-      const response = await axios.post(`https://anamika-blog-backend.vercel.app/api/posts/create` , postData ,  {headers : {
+      const response = await axios.post(`${myUrl}/api/posts/create` , postData ,  {headers : {
         Authorization : `Bearer ${token}`
       }})
-      // const response = await axios.post(`https://anamika-blog-backend.vercel.app/ackend.vercel.app/api/posts/create` , postData , { headers : {
-      //   Authorization : `Bearer ${token}`
-      // }})
+     
+      
 
       console.log(await response.data)
       console.log(response.status)

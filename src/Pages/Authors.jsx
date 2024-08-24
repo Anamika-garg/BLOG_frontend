@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import Loader from '../components/Loader';
 import axios from 'axios'
+import { myUrl } from '../urls';
 const Authors = () => {
   const [authors , setAuthors] = useState([]);
   const [isLoading , setIsLoading] = useState(false);
@@ -11,8 +12,8 @@ const Authors = () => {
     const getAuthors = async()=>{
 
       try{
-        // const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users`)
-        const response = await axios.get(`https://anamika-blog-backend.vercel.app/api/users`)
+        
+        const response = await axios.get(`${myUrl}/api/users`)
         setAuthors(response.data);
       }
       catch(err){
@@ -20,12 +21,14 @@ const Authors = () => {
       }
       setIsLoading(false);
     }
-    getAuthors()
-  })
+    getAuthors();
 
-  // if(isLoading){
-  //   return <Loader/>
-  // }
+
+  })
+  if(isLoading){
+    return <Loader/>
+  }
+    
 
   return (
     <section className="authors">
@@ -34,7 +37,7 @@ const Authors = () => {
           authors.map(({_id : id , avatar , name , posts})=>{
             return <Link key={id} className='author' to={`/posts/users/${id}`}>
               <div className="author_avatar">
-                <img src = {`https://anamika-blog-backend.vercel.app/uploads/${avatar}`} alt={`Image of ${name}`} />
+                <img src = {`${myUrl}/uploads/${avatar}`} alt={`Image of ${name}`} />
               </div>
               <div className="author_info">
                 <h4>{name}</h4>
