@@ -9,7 +9,7 @@ const Authors = () => {
 
   useEffect(()=>{
     const getAuthors = async()=>{
-      setIsLoading(true);
+      // setIsLoading(true);
 
       try{
         
@@ -19,15 +19,15 @@ const Authors = () => {
       catch(err){
         console.log(err)
       }
-      setIsLoading(false);
+      // setIsLoading(false);
     }
     getAuthors();
 
 
   })
-  if(isLoading){
-    return <Loader/>
-  }
+  // if(isLoading){
+  //   return <Loader/>
+  // }
     
 
   return (
